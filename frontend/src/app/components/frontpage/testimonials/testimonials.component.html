@@ -52,11 +52,32 @@
 	                    	<div class="testimonial-single-image">
 	                    		<img src="assets/img/testimonials/4.jpg" alt="" data-at2x="assets/img/testimonials/4.jpg">
 	                    	</div>
-	                    </div>
+                      </div>
+
+
 	                </div>
 	            </div>
 	            <div class="testimonials-icon-container">
             		<span aria-hidden="true" class="icon_chat"></span>
-            	</div>
-	        </div>
+              </div>
+              <br>
+              <h3>Leave a Testimonial</h3>
+              <form role="form" action="assets/contact.php" method="post">
+                <div class="form-group">
+                  <label class="sr-only" for="contact-email">Email</label>
+                    <input type="text" name="email" placeholder="Email..." class="contact-email form-control" id="contact-email">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="contact-subject">Name</label>
+                    <input type="text" name="name" placeholder="Name..." class="contact-subject form-control" id="contact-subject">
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="contact-message">Message</label>
+                    <textarea name="message" placeholder="Message..." class="contact-message form-control" id="contact-message"></textarea>
+                  </div>
+                  <button type="submit" class="btn">Send it</button>
+              </form>
+
+          </div>
+
         </div>

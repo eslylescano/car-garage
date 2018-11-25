@@ -3,19 +3,29 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { TopContentComponent } from './components/top-content/top-content.component';
-import { WhatWeDoComponent } from './components/what-we-do/what-we-do.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AboutComponent } from './components/about/about.component';
-import { ClientsComponent } from './components/clients/clients.component';
-import { CallToActionComponent } from './components/call-to-action/call-to-action.component';
-import { TestimonialsComponent } from './components/testimonials/testimonials.component';
-import { PricingComponent } from './components/pricing/pricing.component';
-import { MottoComponent } from './components/motto/motto.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CountersComponent } from './components/counters/counters.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { NavbarComponent } from './components/frontpage/navbar/navbar.component';
+import { TopContentComponent } from './components/frontpage/top-content/top-content.component';
+import { WhatWeDoComponent } from './components/frontpage/what-we-do/what-we-do.component';
+import { ContactComponent } from './components/frontpage/contact/contact.component';
+import { AboutComponent } from './components/frontpage/about/about.component';
+import { ClientsComponent } from './components/frontpage/clients/clients.component';
+import { CallToActionComponent } from './components/frontpage/call-to-action/call-to-action.component';
+import { TestimonialsComponent } from './components/frontpage/testimonials/testimonials.component';
+import { PricingComponent } from './components/frontpage/pricing/pricing.component';
+import { MottoComponent } from './components/frontpage/motto/motto.component';
+import { FooterComponent } from './components/frontpage/footer/footer.component';
+import { CountersComponent } from './components/frontpage/counters/counters.component';
+import { PortfolioComponent } from './components/frontpage/portfolio/portfolio.component';
+import { LoginComponent } from './components/backpage/login/login.component';
+import { RegisterComponent } from './components/backpage/register/register.component';
+import { FrontpageComponent } from './components/frontpage/frontpage.component';
+import { BackpageComponent } from './components/backpage/backpage.component';
+import { MeComponent } from './components/backpage/me/me.component';
+import { ExperienceComponent } from './components/backpage/experience/experience.component';
+import { StudiesComponent } from './components/backpage/studies/studies.component';
+import { AbilitiesComponent } from './components/backpage/abilities/abilities.component';
+import { TestimoniesComponent } from './components/backpage/testimonies/testimonies.component';
+import { NavbarBackpageComponent } from './components/backpage/navbar-backpage/navbar-backpage.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +42,17 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     MottoComponent,
     FooterComponent,
     CountersComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    LoginComponent,
+    RegisterComponent,
+    FrontpageComponent,
+    BackpageComponent,
+    MeComponent,
+    ExperienceComponent,
+    StudiesComponent,
+    AbilitiesComponent,
+    TestimoniesComponent,
+    NavbarBackpageComponent
   ],
   imports: [
     BrowserModule,
