@@ -1,8 +1,10 @@
 import { BrowserModule,Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/frontpage/navbar/navbar.component';
 import { TopContentComponent } from './components/frontpage/top-content/top-content.component';
 import { WhatWeDoComponent } from './components/frontpage/what-we-do/what-we-do.component';
@@ -56,7 +58,9 @@ import { NavbarBackpageComponent } from './components/backpage/navbar-backpage/n
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }, Title],
   bootstrap: [AppComponent]

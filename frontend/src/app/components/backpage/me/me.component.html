@@ -1,13 +1,13 @@
-<div id="yo" class="page">
+<div id="me" class="page">
 
-  <h1 class="page-header">Acerca de mí</h1>
+  <h1 class="page-header">About me</h1>
 
     <div>
 
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Información</a></li>
-        <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab">Ubicación</a></li>
+        <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Information</a></li>
+        <li role="presentation"><a href="#ubicacion" aria-controls="ubicacion" role="tab" data-toggle="tab">Location</a></li>
         <li role="presentation"><a href="#social" aria-controls="social" role="tab" data-toggle="tab">Social</a></li>
       </ul>
 
@@ -15,40 +15,38 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="info">
           <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" name="Nombre" class="form-control" placeholder="Ingrese su nombre" />
+              <label>Name</label>
+              <input [(ngModel)]="user.name" type="text" name="name" class="form-control" placeholder="Place your name" />
           </div>
           <div class="form-group">
-              <label>Apellido</label>
-              <input type="text" name="Apellido" class="form-control" placeholder="Ingrese su apellido" />
+              <label>Last Name</label>
+              <input [(ngModel)]="user.last_name" type="text" name="Apellido" class="form-control" placeholder="Place your last name" />
           </div>
           <div class="form-group">
               <label>E-mail</label>
-              <input type="text" name="Email" class="form-control" placeholder="Ingrese su correo" />
+              <input [(ngModel)]="user.email" type="text" name="Email" class="form-control" placeholder="Place your email" />
           </div>
           <div class="form-group">
-              <label>Teléfono</label>
-              <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su teléfono" />
+              <label>Phone Number</label>
+              <input [(ngModel)]="user.phone" type="text" name="phone" class="form-control" placeholder="Place your phone number" />
           </div>
           <div class="form-group">
-              <label>Foto de perfil</label>
+              <label>Profile Photo</label>
               <input type="file" name="Imagen" />
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="ubicacion">
+            <div class="form-group">
+                <label>Country</label>
+                <input [(ngModel)]="user.country" type="text" name="country" class="form-control" placeholder="Place your country" />
+            </div>
           <div class="form-group">
-              <label>País</label>
-              <select class="form-control">
-                  <option value="">Seleccione un país</option>
-              </select>
+              <label>City</label>
+              <input [(ngModel)]="user.city" type="text" name="city" class="form-control" placeholder="Place your city" />
           </div>
           <div class="form-group">
-              <label>Ciudad</label>
-              <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su ciudad" />
-          </div>
-          <div class="form-group">
-              <label>Dirección</label>
-              <textarea name="Direccion" class="form-control" placeholder="Ingrese su dirección"></textarea>
+              <label>Address</label>
+              <textarea [(ngModel)]="user.address" name="address" class="form-control" placeholder="Place your address"></textarea>
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="social">
@@ -58,7 +56,7 @@
                   <span class="input-group-addon">
                       <i class="fa fa-facebook"></i>
                   </span>
-                  <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su Facebook" />
+                  <input [(ngModel)]="user.facebook" type="text" name="facebook" class="form-control" placeholder="Place your facebook" />
               </div>
           </div>
           <div class="form-group">
@@ -67,7 +65,7 @@
                   <span class="input-group-addon">
                       <i class="fa fa-twitter"></i>
                   </span>
-                  <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su Twitter" />
+                  <input [(ngModel)]="user.twitter" type="text" name="twitter" class="form-control" placeholder="Place your twitter" />
               </div>
           </div>
           <div class="form-group">
@@ -76,7 +74,7 @@
                   <span class="input-group-addon">
                       <i class="fa fa-youtube"></i>
                   </span>
-                  <input type="text" name="Ciudad" class="form-control" placeholder="Ingrese su YouTube" />
+                  <input [(ngModel)]="user.youtube" type="text" name="youtube" class="form-control" placeholder="Place your youtube" />
               </div>
           </div>
         </div>
@@ -85,6 +83,6 @@
     </div>
 
   <div class="text-right well well-sm">
-      <button class="btn btn-primary">Guardar</button>
+      <button class="btn btn-primary">Save</button>
   </div>
 </div>
