@@ -5,7 +5,7 @@ export interface User{
   password?:string;
   last_name?:string;
   phone?:string;
-  image?:string;
+  photo?:string;
   country?:string;
   city?:string;
   address?:string;

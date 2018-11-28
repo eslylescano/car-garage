@@ -1,5 +1,5 @@
 <div id="me" class="page">
-
+    <form #userForm=ngForm (ngSubmit)="onSubmit()">
   <h1 class="page-header">About me</h1>
 
     <div>
@@ -13,6 +13,7 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
+
         <div role="tabpanel" class="tab-pane active" id="info">
           <div class="form-group">
               <label>Name</label>
@@ -32,7 +33,7 @@
           </div>
           <div class="form-group">
               <label>Profile Photo</label>
-              <input type="file" name="Imagen" />
+              <input type="file" (change)="onFileSelected($event)" name="Imagen" />
           </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="ubicacion">
@@ -83,6 +84,7 @@
     </div>
 
   <div class="text-right well well-sm">
-      <button class="btn btn-primary">Save</button>
+      <button class="btn btn-primary" type="submit">Save</button>
   </div>
+</form>
 </div>

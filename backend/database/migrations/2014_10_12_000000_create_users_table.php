@@ -45,7 +45,7 @@ class CreateUsersTable extends Migration
                 'youtube' => '',
                 'country' => 'UK',
                 'city' => 'Kendal',
-                'photo' => 'esly.jpg'));
+                'photo' => '/photos/noimage.jpg'));
 
     }
 

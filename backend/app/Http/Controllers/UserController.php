@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 
@@ -84,20 +83,49 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $user = User::find($id);
         $user->name=$request->input('name');
         $user->last_name=$request->input('last_name');
         $user->phone=$request->input('phone');
-        $user->image=$request->input('image');
         $user->country=$request->input('country');
         $user->city=$request->input('city');
         $user->address=$request->input('address');
         $user->post_code=$request->input('post_code');
         $user->facebook=$request->input('facebook');
-        $user->twiter=$request->input('twiter');
+        $user->twitter=$request->input('twitter');
         $user->youtube=$request->input('youtube');
+
+
+        $photoRequest = $request->input('photo');
+             if($this->endswith($photoRequest,'.jpg')||$this->endswith($photoRequest,'.png')){
+            }else{
+                if($user->photo !='/photos/noimage.jpg'){
+                    unlink(public_path().$user->photo);
+                    }
+                    $user->photo = $this->saveImage($request);
+            }
         $user->save();
         return json_encode($user);
+    }
+
+    public function saveImage(Request $request){
+
+        $extension='';
+      $exploded = explode(',',$request->photo);
+      $decoded = base64_decode($exploded[1]);
+      if(str_contains($exploded[0],'jpeg')){
+        $extension = 'jpg';
+      } else {
+        $extension = 'png';
+      }
+
+      $filename = time().'.'.$extension;
+      $path = public_path().'/photos/'.$filename;
+      file_put_contents($path,$decoded);
+
+      return '/photos/'.$filename;
     }
 
     /**
@@ -109,5 +137,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function endsWith( $str, $sub ) {
+        return ( substr( $str, strlen( $str ) - strlen( $sub ) ) == $sub );
     }
 }

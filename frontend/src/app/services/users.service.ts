@@ -10,11 +10,11 @@ export class UsersService {
 
   update(user){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.put(this.API_URL+'/user/'+user.id,user,{headers:headers});
+    return this.httpClient.put(this.API_URL+'/users/'+user.id,user,{headers:headers});
   }
 
   get(id){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.get(this.API_URL+'/user/'+id,{headers:headers});
+    return this.httpClient.get(this.API_URL+'/users/'+id,{headers:headers});
   }
 }
