@@ -28,6 +28,7 @@ import { StudiesComponent } from './components/backpage/studies/studies.componen
 import { AbilitiesComponent } from './components/backpage/abilities/abilities.component';
 import { TestimoniesComponent } from './components/backpage/testimonies/testimonies.component';
 import { NavbarBackpageComponent } from './components/backpage/navbar-backpage/navbar-backpage.component';
+import { ServicesComponent } from './components/backpage/services/services.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { NavbarBackpageComponent } from './components/backpage/navbar-backpage/n
     StudiesComponent,
     AbilitiesComponent,
     TestimoniesComponent,
-    NavbarBackpageComponent
+    NavbarBackpageComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,

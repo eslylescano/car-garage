@@ -7,6 +7,7 @@ import { FrontpageComponent } from './components/frontpage/frontpage.component';
 import { MeComponent } from './components/backpage/me/me.component';
 import { StudiesComponent } from './components/backpage/studies/studies.component';
 import { TestimoniesComponent } from './components/backpage/testimonies/testimonies.component';
+import { ServicesComponent } from './components/backpage/services/services.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,8 @@ const routes: Routes = [
         component:AbilitiesComponent
       },
       {
-        path:'experience',
-        component:ExperienceComponent
+        path:'services',
+        component:ServicesComponent
       },
       {
         path:'studies',

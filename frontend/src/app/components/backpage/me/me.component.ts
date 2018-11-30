@@ -39,22 +39,21 @@ export class MeComponent implements OnInit {
   getUser(){
     this.usersService.get(1).subscribe((data:User)=>{
       this.user=data;
-      console.log(this.user);
     },(error)=>{
       console.log(error);
     });
   }
 
   onSubmit(){
-    this.usersService.update(this.user).subscribe((data)=>{
-      console.log(this.user);
-      console.log(data);
+    this.usersService.edit(this.user).subscribe((data)=>{
       this.getUser();
+      console.log(this.user);
     },(error)=>{
       console.log(this.user);
       console.log(error);
 
       this.getUser();
+
     });
  }
 
@@ -63,8 +62,7 @@ export class MeComponent implements OnInit {
   let myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.user.photo = myReader.result;
-    console.log(this.user.photo);
+    this.user.photo = myReader.result.toString();
   }
 
   myReader.readAsDataURL(selectedFile);

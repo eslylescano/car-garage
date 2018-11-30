@@ -31,9 +31,9 @@
             </div>
             <div class="col-sm-4 block-2-box block-2-right contact-address wow fadeInUp">
               <h3>Visit us</h3>
-                  <p><span aria-hidden="true" class="icon_pin"></span>Via Principe Amedeo 9, Torino, Italy</p>
-                  <p><span aria-hidden="true" class="icon_phone"></span>Phone: 0039 333 12 68 347</p>
-                  <p><span aria-hidden="true" class="icon_mail"></span>Email: <a href="">hi@yourdomain.com</a></p>
+                  <p><span aria-hidden="true" class="icon_pin"></span>{{user.address}}, {{user.post_code}},{{user.city}}, {{user.country}}</p>
+                  <p><span aria-hidden="true" class="icon_phone"></span>Phone: {{user.phone}}</p>
+                  <p><span aria-hidden="true" class="icon_mail"></span>Email: <a href="">{{user.email}}</a></p>
             </div>
           </div>
           <div class="contact-icon-container">

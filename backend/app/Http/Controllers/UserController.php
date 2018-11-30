@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        return "hola";
+        return User::find(1);
     }
 
     /**
