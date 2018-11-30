@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    public function services(){
+        //return $this->belongsToMany('App\Service')->withPivot('description')->withTimestamps();;
+        return $this->hasMany('App\Service');
+    }
 }

@@ -1,0 +1,62 @@
+<div id="experiencia" class="page">
+
+  <h1 class="page-header remove-margin" *ngIf="!(edit||add)">
+      <a class="btn btn-primary pull-right" (click)="addService()" *ngIf="!(edit||add) && isServiceDataEmpty">Add</a>
+      Services
+  </h1>
+
+  <h1 class="page-header remove-margin" *ngIf="add">Add Services</h1>
+  <h1 class="page-header remove-margin" *ngIf="edit">Edit Services</h1>
+
+
+
+
+    <form #serviceForm=ngForm *ngIf="edit||add">
+
+      <div class="form-group" *ngIf="add">
+        <label>Select Service</label>
+        <select [(ngModel)]="service.data_service_id" class="form-control" name="data_service_id" >
+          <option *ngFor="let dataService of dataServices" [ngValue]="dataService.id" selected="selected">{{dataService.name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="edit">
+        <label>Name</label>
+          <p>{{service.name|uppercase}}</p>
+      </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <input [(ngModel)]="service.description" type="text" name="description" class="form-control" placeholder="Place your description" required/>
+        </div>
+
+
+        <a  class="btn btn-primary btn-block" (click)="saveService()">Save</a>
+    </form>
+    <br><br>
+
+
+  <table class="table table-striped table-bordered" *ngIf="!(edit||add)">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Service</th>
+              <th>Description</th>
+              <th>image</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let service of services; index as i">
+              <td>{{i+1}}</td>
+              <td>{{service.name|uppercase}}</td>
+              <td>{{service.description}}</td>
+              <td><img src='{{baseUrl+service.image}}'></td>
+              <td><a class="btn btn-primary btn-sm left" (click)="editService(service)" >Edit</a>
+                <a class="btn btn-primary btn-sm btn-danger right" (click)="deleteService(service)">Delete</a>
+              </td>
+          </tr>
+
+      </tbody>
+  </table>
+</div>

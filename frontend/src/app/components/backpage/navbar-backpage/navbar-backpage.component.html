@@ -8,35 +8,36 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <!-- <a class="navbar-brand" href="#">
           Portfolio V 1.0.0
-      </a>
+      </a> -->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
             <li>
-                <a routerLink="me">Acerca de mí</a>
+                <a routerLink="me">About Me</a>
             </li>
             <li>
-                <a routerLink="experience">Trabajos</a>
+                <a routerLink="services">Services</a>
             </li>
             <li>
-                <a routerLink="studies">Estudios</a>
+                <a routerLink="studies">Projects Developed</a>
             </li>
             <li>
-                <a routerLink="abilities">Habilidades</a>
+                <a routerLink="abilities">Technologies</a>
             </li>
             <li>
-                <a routerLink="testimonies">Testimonios</a>
+                <a routerLink="testimonies">Testimonies</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img id="user-pic" src="" />
-                    <b>Hola</b>, Eduardo <span class="caret"></span>
+                    <img id="user-pic" src={{user.photo}} />
+                    <!-- <b>Hi</b>, {{user.name}} <span class="caret"></span> -->
+                    <b>Hi</b>, user <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>

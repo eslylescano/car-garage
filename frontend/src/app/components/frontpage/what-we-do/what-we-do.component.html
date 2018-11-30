@@ -12,14 +12,15 @@
               </div>
           </div>
           <div class="row">
-              <div class="col-sm-3 block-3-box wow fadeInUp">
+              <div class="col-sm-3 block-3-box wow fadeInUp" *ngFor="let service of services">
                 <div class="block-3-box-icon">
-                  <span aria-hidden="true" class="icon_pencil"></span>
+                  <!-- <span aria-hidden="true" class="icon_pencil"></span> -->
+                  <img src="{{baseUrl+service.image}}">
                 </div>
-                  <h3>Web Design</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                  <h3>{{service.name}}</h3>
+                  <p>{{service.description}}</p>
                 </div>
-                <div class="col-sm-3 block-3-box wow fadeInDown">
+                <!-- <div class="col-sm-3 block-3-box wow fadeInDown">
                 <div class="block-3-box-icon">
                   <span aria-hidden="true" class="icon_cogs"></span>
                 </div>
@@ -39,7 +40,7 @@
                 </div>
                   <h3>Branding</h3>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-                </div>
+                </div> -->
           </div>
       </div>
     </div>
