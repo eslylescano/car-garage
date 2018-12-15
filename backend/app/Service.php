@@ -12,4 +12,10 @@ class Service extends Model
 {
     return $this->belongsTo('App\User','user_id');
 }
+
+public function dataService()
+{
+    return $this->hasOne('App\DataService','data_service_id');
+}
+
 }

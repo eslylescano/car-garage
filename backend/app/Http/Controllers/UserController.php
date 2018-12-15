@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\Service;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -13,8 +15,53 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+
         return User::find(1);
+
+        // $directory = public_path().'/img/svg';
+        // $files = scandir($directory);
+        // $dataToStore = array();
+        // $counter=0;
+        // foreach($files as $file){
+        //     if($this->endswith($file,'.svg')){
+        //         $name=str_replace(".svg", "", $file);
+        //         $name=str_replace("-", " ", $name);
+        //         $image = "/img/svg/".$file;
+        //         DB::select("insert into data_services (name,image) values('".$name."','".$image."')");
+
+        //         $counter++;
+
+        //     }
+
+        // }
+        // return DB::select('select * from data_services');
+
+
+        // $directory = public_path().'/img/png';
+        // $files = scandir($directory);
+        // $dataToStore = array();
+        // $counter=0;
+        // foreach($files as $file){
+        //     if($this->endswith($file,'.png')){
+        //         $name=substr($file,3,strlen($file));
+        //         $name=str_replace(".png", "", $name);
+        //         $name=str_replace("-", " ", $name);
+        //         $image = "/img/png/".$file;
+        //         DB::select("insert into data_services (name,image) values('".$name."','".$image."')");
+        //         $counter++;
+
+        //     }
+
+        // }
+        // $data_services = DB::select("select * from data_services");
+        // foreach($data_services as $data_service){
+        //     DB::select("insert into services (user_id,data_service_id) values(1,'".$data_service->id."')");
+        // }
+
+        // return DB::select('select * from data_services');
+
+
+
     }
 
     /**

@@ -31,8 +31,7 @@ class CreateServicesTable extends Migration
 Schema::create('services', function (Blueprint $table) {
     $table->increments('id');
     $table->integer('user_id');
-    $table->string('name')->nullable();
-    $table->string('image')->nullable();
+    $table->integer('data_service_id');
     $table->string('description')->nullable();
     $table->timestamps();
 });
@@ -40,17 +39,12 @@ Schema::create('services', function (Blueprint $table) {
 
 DB::table('services')->insert(
     array(
-        'name' => 'battery',
+        'id' => '1',
         'user_id' => '1',
-        'description' => 'descripcion battery',
-        'image' => 'battery.png'));
+        'data_service_id' => '1',
+        'description' => 'description 1'));
 
-DB::table('services')->insert(
-    array(
-        'name' => 'tyre',
-        'user_id' => '1',
-        'description' => 'descripcion tyre',
-        'image' => 'tyre.png'));
+
 
 
     }

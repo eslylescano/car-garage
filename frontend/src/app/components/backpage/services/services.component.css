@@ -4,6 +4,7 @@ input, select, textarea{
 ::placeholder { /* Most modern browsers support this now. */
   color:    rgb(167, 158, 167) !important;
 }
+<<<<<<< HEAD
 
 img{
   width:50px;
@@ -11,3 +12,5 @@ img{
 }
 
 
+=======
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c

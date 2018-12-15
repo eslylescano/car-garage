@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
@@ -13,11 +14,23 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $requestType=$request->input('type');
+        $userId=1;
 
-        $services = User::find(1)->services;
-        return $services;
+        if($requestType==1){
+            // return DB::table('services')
+            // ->where('user_id',$userId)
+            // ->join('data_services', 'services.data_service_id', '=', 'data_services.id')
+            // ->get();
+            return DB::select('select s.id,ds.name,ds.image,s.description from services as s inner join data_services as ds on s.data_service_id=ds.id');
+        }
+
+        if($requestType==2){
+            return DB::select('select ds.id,ds.name,ds.image from data_services as ds where ds.id NOT IN (select s.data_service_id from services as s where user_id='.$userId.')');
+        }
+
 
 
     }
@@ -43,8 +56,7 @@ class ServiceController extends Controller
 
 
         $service = new Service;
-        $service->name=$request->input('name');
-        $service->image=$request->input('image');
+        $service->data_service_id=$request->input('data_service_id');
         $service->user_id=1;
         $service->description=$request->input('description');
         $service->save();
@@ -86,9 +98,6 @@ class ServiceController extends Controller
     {
         //
         $service = Service::find($request->input('id'));
-        $service->name=$request->input('name');
-        $service->image=$request->input('image');
-        $service->user_id=$request->input('user_id');
         $service->description=$request->input('description');
         $service->save();
         return $service;
@@ -107,4 +116,5 @@ class ServiceController extends Controller
         $service->delete();
         return response()->json(['message' => 'Service deleted']);
     }
+
 }

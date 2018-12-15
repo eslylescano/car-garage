@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServicesComponent implements OnInit {
 
   service:Service={
+<<<<<<< HEAD
     image:null,
     id:null,
     description:null,
@@ -31,6 +32,21 @@ export class ServicesComponent implements OnInit {
     this.baseUrl=servicesService.BASE_URL;
     this.getServices();
     this.getDataServices();
+=======
+    image:null;
+    id:null;
+    description:null,
+    user_id:null,
+    name:null
+    created_at:null
+    updated_at:null
+  };
+  add : boolean=false;
+  edit : boolean=false;
+  services:Service[];
+  constructor(private servicesService:ServicesService, private router:Router) {
+    this.getServices();
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
 
   }
 
@@ -38,9 +54,13 @@ export class ServicesComponent implements OnInit {
   }
 
   addService(){
+<<<<<<< HEAD
     this.getDataServices();
 this.add=true;
 
+=======
+this.add=true;
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
   }
 
   editService(service){
@@ -50,6 +70,7 @@ this.add=true;
 
   saveService(){
     if(this.edit){
+<<<<<<< HEAD
       console.log('data: '+this.service);
       this.servicesService.edit(this.service).subscribe((data)=>{
         console.log(data);
@@ -61,6 +82,14 @@ this.add=true;
         this.getServices();
         this.getDataServices();
         this.emptyService();
+=======
+      this.servicesService.edit(this.service).subscribe((data)=>{
+        console.log(data);
+        this.getServices();
+        this.emptyService();
+      },(error)=>{
+        console.log(error);
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
       });
       this.edit=false;
     }
@@ -68,6 +97,7 @@ this.add=true;
       this.servicesService.create(this.service).subscribe((data)=>{
         console.log(data);
         this.getServices();
+<<<<<<< HEAD
         this.getDataServices();
         this.emptyService();
       },(error)=>{
@@ -75,6 +105,11 @@ this.add=true;
         this.getServices();
         this.getDataServices();
         this.emptyService();
+=======
+        this.emptyService();
+      },(error)=>{
+        console.log(error);
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
       });
       this.add=false;
     }
@@ -86,12 +121,19 @@ this.add=true;
 
   deleteService(service){
     this.servicesService.delete(service).subscribe((data)=>{
+<<<<<<< HEAD
       this.getServices();
       this.getDataServices();
     },(error)=>{
       console.log(error);
       this.getServices();
       this.getDataServices();
+=======
+      console.log(data);
+      this.getServices();
+    },(error)=>{
+      console.log(error);
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
     });
   }
 
@@ -103,6 +145,7 @@ this.add=true;
       console.log(error);
     });
   }
+<<<<<<< HEAD
   getDataServices(){
     this.servicesService.getDataServices().subscribe((data:Service[])=>{
       this.dataServices=data;
@@ -112,6 +155,8 @@ this.add=true;
       console.log(error);
     });
   }
+=======
+>>>>>>> 07772d4b5aab6335568c68094c6cab6ca4bcd58c
 
   emptyService(){
     this.service.id=null;
