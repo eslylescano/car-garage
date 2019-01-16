@@ -1,4 +1,6 @@
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-
+input, select, textarea{
+  color: rgb(70, 70, 70);
+}
+::placeholder { /* Most modern browsers support this now. */
+  color:    rgb(167, 158, 167) !important;
 }

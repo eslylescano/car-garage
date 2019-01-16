@@ -1,43 +1,99 @@
 <div id="testimonios" class="page">
 
-  <h1 class="page-header remove-margin">
-      Testimonios
+  <h1 class="page-header remove-margin" *ngIf="!edit">
+      Testimonials
+  </h1>
+  <h1 class="page-header remove-margin" *ngIf="edit">
+      Edit Testimonials
   </h1>
 
-  <table class="table table-striped table-bordered">
+  <table class="table table-striped table-bordered" *ngIf="!edit">
       <thead>
           <tr>
               <th>Name</th>
-              <th>Status</th>
-              <th>IP</th>
+              <th>Email</th>
               <th>Date</th>
+              <th>Status</th>
               <th style="width:400px;">Comment</th>
+              <th></th>
           </tr>
       </thead>
       <tbody>
-          <tr>
+
+
+          <tr *ngFor="let testimonial of testimonials">
+              <td>
+                <a href="#">{{testimonial.name}}</a>
+              </td>
+              <td>{{testimonial.email}}</td>
+              <td>{{testimonial.created_at}}</td>
+              <td>
+                  <b *ngIf="testimonial.status==0" class="text-warning">Pending</b>
+                  <b *ngIf="testimonial.status==1" class="text-success">Approved</b>
+              </td>
+
+
+              <td>{{testimonial.message}}</td>
+              <td><a class="btn btn-primary btn-sm left" (click)="editTestimonial(testimonial)" >Edit</a>
+                <a class="btn btn-primary btn-sm btn-danger right" (click)="deleteTestimonial(testimonial)">Delete</a>
+              </td>
+          </tr>
+
+
+          <!-- <tr>
               <td>
                 <a href="#">Mark Zuckerberg</a>
               </td>
+              <td>email</td>
+              <td>2015-02-02</td>
               <td>
                   <b class="text-warning">Pending</b>
               </td>
-              <td>192.168.1.54</td>
-              <td>2015-02-02</td>
+
+
               <td>Excellent professional, It is definitely a great compnay and very hard at work.</td>
           </tr>
           <tr>
               <td>
                 <a href="#">Larry Page</a>
               </td>
+              <td>email</td>
+              <td>2015-02-02</td>
               <td>
                   <b class="text-success">Approved</b>
               </td>
-              <td>192.168.1.5</td>
-              <td>2015-02-02</td>
+
+
               <td>Amnick is a very professional company, you can tell they know the subject and I am very happy with the projects that they have done to me.</td>
-          </tr>
+          </tr> -->
 
       </tbody>
   </table>
+
+  <form #testimonialForm=ngForm *ngIf="edit">
+
+    <div class="form-group" >
+      <label>Name</label>
+        <p>{{testimonial.name}}</p>
+    </div>
+    <div class="form-group" >
+      <label>Email</label>
+        <p>{{testimonial.email}}</p>
+    </div>
+    <div class="form-group" >
+      <label>Comment</label>
+        <p>{{testimonial.message}}</p>
+    </div>
+
+
+
+      <select [(ngModel)]="testimonial.status" class="form-control" name="status" required>
+        <option  [ngValue]="0" [selected]="testimonial.status==0">Pending</option>
+        <option  [ngValue]="1" [selected]="testimonial.status==1">Accepted</option>
+      </select>
+
+
+
+      <button  class="btn btn-primary btn-block" [disabled]="!testimonialForm.valid" (click)="saveTestimonial()">Save</button>
+  </form>
 </div>

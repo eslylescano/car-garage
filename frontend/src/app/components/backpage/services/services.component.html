@@ -17,8 +17,8 @@
 
       <div class="form-group" *ngIf="add">
         <label>Select Service</label>
-        <select [(ngModel)]="service.data_service_id" class="form-control" name="data_service_id" >
-          <option *ngFor="let dataService of dataServices" [ngValue]="dataService.id" selected="selected">{{dataService.name}}</option>
+        <select [(ngModel)]="service.data_service_id" class="form-control" name="data_service_id" required>
+          <option *ngFor="let dataService of dataServices" [ngValue]="dataService.id" >{{dataService.name}}</option>
         </select>
       </div>
 
@@ -29,12 +29,12 @@
 
           <div class="form-group">
             <label>Description</label>
-            <input [(ngModel)]="service.description" type="text" name="description" class="form-control" placeholder="Place your description" required/>
+            <input [(ngModel)]="service.description" type="text" name="description" class="form-control" placeholder="Place your description" />
         </div>
 
 
 
-        <a  class="btn btn-primary btn-block" (click)="saveService()">Save</a>
+        <button  class="btn btn-primary btn-block" [disabled]="!serviceForm.valid" (click)="saveService()">Save</button>
     </form>
     <br><br>
 

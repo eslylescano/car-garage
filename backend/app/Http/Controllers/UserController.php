@@ -6,7 +6,7 @@ use App\User;
 use App\Service;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class UserController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -143,36 +143,9 @@ class UserController extends Controller
         $user->facebook=$request->input('facebook');
         $user->twitter=$request->input('twitter');
         $user->youtube=$request->input('youtube');
-
-
-        $photoRequest = $request->input('photo');
-             if($this->endswith($photoRequest,'.jpg')||$this->endswith($photoRequest,'.png')){
-            }else{
-                if($user->photo !='/photos/noimage.jpg'){
-                    unlink(public_path().$user->photo);
-                    }
-                    $user->photo = $this->saveImage($request);
-            }
+        $user->photo = $this->saveImage($user->photo,$request->photo,'/photos/');
         $user->save();
         return json_encode($user);
-    }
-
-    public function saveImage(Request $request){
-
-        $extension='';
-      $exploded = explode(',',$request->photo);
-      $decoded = base64_decode($exploded[1]);
-      if(str_contains($exploded[0],'jpeg')){
-        $extension = 'jpg';
-      } else {
-        $extension = 'png';
-      }
-
-      $filename = time().'.'.$extension;
-      $path = public_path().'/photos/'.$filename;
-      file_put_contents($path,$decoded);
-
-      return '/photos/'.$filename;
     }
 
     /**
@@ -186,7 +159,5 @@ class UserController extends Controller
         //
     }
 
-    public function endsWith( $str, $sub ) {
-        return ( substr( $str, strlen( $str ) - strlen( $sub ) ) == $sub );
-    }
+
 }
